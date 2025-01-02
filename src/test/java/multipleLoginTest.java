@@ -1,12 +1,16 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+//Test → we will maintain all the tests.
 public class MultipleLoginTest {
 
     WebDriver driver = new ChromeDriver();
@@ -20,7 +24,7 @@ public class MultipleLoginTest {
     }
 
     @Test
-    public void loginTest() {
+    public void loginTest() throws IOException {
 
         Login login = new Login(driver);
         login.setTextUsername("admin");
@@ -32,11 +36,21 @@ public class MultipleLoginTest {
             System.out.println("Login credentials Invalid");
         }else {
             System.out.println("Login credentials valid and its working");
+            System.out.println("LOGIN FAILED");
         }
+
+            //Take Screenshot
+            TakesScreenshot objScr = (TakesScreenshot) driver;
+            File scrFile = objScr.getScreenshotAs(OutputType.FILE);
+            String timeStamp = new SimpleDateFormat("ddMMyyyy_hhmmss").format(new Date());
+            String fileType = "IMG"+timeStamp+".png";
+            FileUtils.copyFile(scrFile, new File("/Users/preethianil/Downloads/Selenium/ScreenShots/"+fileType));
+            System.out.println("The screenshot is taken and the file name is: "+fileType);
+
     }
 
     @Test
-    public void loginTest1() {
+    public void loginTest1() throws IOException {
 
         Login login = new Login(driver);
         login.setTextUsername("Wrong1");
@@ -48,11 +62,20 @@ public class MultipleLoginTest {
             System.out.println("Login credentials Invalid");
         } else {
             System.out.println("Login credentials valid and its working");
+            System.out.println("LOGIN FAILED");
         }
+
+        //Take Screenshot
+        TakesScreenshot objScr = (TakesScreenshot) driver;
+        File scrFile = objScr.getScreenshotAs(OutputType.FILE);
+        String timeStamp = new SimpleDateFormat("ddMMyyyy_hhmmss").format(new Date());
+        String fileType = "IMG"+timeStamp+".png";
+        FileUtils.copyFile(scrFile, new File("/Users/preethianil/Downloads/Selenium/ScreenShots/"+fileType));
+        System.out.println("The screenshot is taken and the file name is: "+fileType);
     }
 
     @Test
-    public void loginTest3(){
+    public void loginTest3() throws IOException {
 
             Login login = new Login(driver);
             login.setTextUsername("Wrong1");
@@ -64,11 +87,20 @@ public class MultipleLoginTest {
                 System.out.println("Login credentials Invalid");
             } else {
                 System.out.println("Login credentials valid and its working");
+                System.out.println("LOGIN FAILED");
             }
+
+        //Take Screenshot
+        TakesScreenshot objScr = (TakesScreenshot) driver;
+        File scrFile = objScr.getScreenshotAs(OutputType.FILE);
+        String timeStamp = new SimpleDateFormat("ddMMyyyy_hhmmss").format(new Date());
+        String fileType = "IMG"+timeStamp+".png";
+        FileUtils.copyFile(scrFile, new File("/Users/preethianil/Downloads/Selenium/ScreenShots/"+fileType));
+        System.out.println("The screenshot is taken and the file name is: "+fileType);
     }
 
     @Test
-    public void loginTest4(){
+    public void loginTest4() throws IOException {
 
         Login login = new Login(driver);
         login.setTextUsername("Wrong1");
@@ -80,12 +112,20 @@ public class MultipleLoginTest {
             System.out.println("Login credentials Invalid");
         } else {
             System.out.println("Login credentials valid and its working");
-            System.out.println("TEST PASSED");
+            System.out.println("LOGIN FAILED");
         }
+
+        //Take Screenshot
+        TakesScreenshot objScr = (TakesScreenshot) driver;
+        File scrFile = objScr.getScreenshotAs(OutputType.FILE);
+        String timeStamp = new SimpleDateFormat("ddMMyyyy_hhmmss").format(new Date());
+        String fileType = "IMG"+timeStamp+".png";
+        FileUtils.copyFile(scrFile, new File("/Users/preethianil/Downloads/Selenium/ScreenShots/"+fileType));
+        System.out.println("The screenshot is taken and the file name is: "+fileType);
     }
 
     @Test
-    public void loginTest5(){
+    public void loginTest5() throws IOException {
 
         Login login = new Login(driver);
         login.setTextUsername("student");
@@ -97,8 +137,17 @@ public class MultipleLoginTest {
             System.out.println("Login credentials Invalid");
         } else {
             System.out.println("Login credentials valid and its working");
+            System.out.println("LOGIN DONE");
             System.out.println("TEST PASSED");
         }
+
+        //Take Screenshot
+        TakesScreenshot objScr = (TakesScreenshot) driver;
+        File scrFile = objScr.getScreenshotAs(OutputType.FILE);
+        String timeStamp = new SimpleDateFormat("ddMMyyyy_hhmmss").format(new Date());
+        String fileType = "IMG"+timeStamp+".png";
+        FileUtils.copyFile(scrFile, new File("/Users/preethianil/Downloads/Selenium/ScreenShots/"+fileType));
+        System.out.println("The screenshot is taken and the file name is: "+fileType);
     }
 
     public void tearDown() {

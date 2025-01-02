@@ -1,9 +1,13 @@
 import org.jspecify.annotations.NullMarked;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.io.File;
+import java.io.IOException;
 
 public class Login {
 
@@ -11,6 +15,8 @@ public class Login {
 
     //Here in Maven we usually will have to call the driver and web elements differently
     //These are the web elements
+    //Here in Main → We will maintain all the object repository
+
     @FindBy (id="username")
     WebElement textUsername;
 
@@ -37,6 +43,7 @@ public class Login {
     public void clickSubmit(){
         btnSubmit.click();
     }
+
 
 
 }
