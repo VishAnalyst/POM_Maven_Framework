@@ -11,8 +11,6 @@ import java.io.IOException;
 
 public class Login {
 
-
-
     //Here in Maven we usually will have to call the driver and web elements differently
     //These are the web elements
     //Here in Main → We will maintain all the object repository
@@ -26,14 +24,13 @@ public class Login {
     @FindBy (id="submit")
     WebElement btnSubmit;
 
-
     //to Initiate the process we need driver
     public Login (WebDriver driver){
         PageFactory.initElements(driver,this);
 
     }
 
-    //These are the operative methods
+    //These are the operative methods for main page
     public void setTextUsername(String username){
         textUsername.sendKeys(username);
     }
@@ -45,5 +42,5 @@ public class Login {
     }
 
 
-
 }
+
